@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Demanda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Proceso de Demanda</h1>
+    </header>
+    
+    <div class="container">
+        <h2>Formulario de Demanda</h2>
+        <form action="procesarDemanda.php" method="POST">
+            <label for="tipo-demanda">Tipo de Demanda:</label>
+            <select id="tipo-demanda" name="tipo-demanda" required>
+                <option value="civil">Demanda Civil</option>
+                <option value="laboral">Demanda Laboral</option>
+                <option value="familiar">Demanda Familiar</option>
+                <option value="comercial">Demanda Comercial</option>
+                <option value="otros">Otros</option>
+            </select>
+
+            <label for="detalles">Detalles de la Demanda:</label>
+            <textarea id="detalles" name="detalles" rows="4" required></textarea>
+
+            <label for="nombre">Nombre del Demandante:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Presentar Demanda</button>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Denuncia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .description, .denuncia-types, .form-section {
+            margin-bottom: 20px;
+        }
+        .denuncia-types ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .denuncia-types li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .form-section label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        .form-section input, .form-section textarea, .form-section select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-section button {
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Proceso de Denuncia</h1>
+        <div class="description">
+            <p>En esta sección podrás iniciar un proceso de denuncia en caso de haber sido víctima o testigo de una situación que vulnere tus derechos o los de otra persona. Nos comprometemos a guiarte y representarte en cada paso de este proceso.</p>
+        </div>
+
+        <!-- Tipos de Denuncias -->
+        <div class="denuncia-types">
+            <h2>¿Qué tipo de denuncia quieres presentar?</h2>
+            <ul>
+                <li><strong>Denuncia por robo:</strong> En casos donde se haya experimentado una pérdida de propiedad debido a un robo.</li>
+                <li><strong>Denuncia por acoso:</strong> Situaciones en las que te sientas hostigado(a) o amenazado(a) por alguien.</li>
+                <li><strong>Denuncia por abuso laboral:</strong> Cuando se hayan violado tus derechos en el ámbito laboral.</li>
+                <li><strong>Denuncia por violencia doméstica:</strong> En casos donde haya ocurrido maltrato físico, psicológico o emocional en el entorno familiar.</li>
+                <li><strong>Denuncia por fraude:</strong> Situaciones donde se han realizado actos de engaño con el fin de obtener beneficios económicos o personales.</li>
+            </ul>
+        </div>
+
+        <!-- Formulario de Denuncia -->
+        <div class="form-section">
+            <h2>Presenta tu Denuncia</h2>
+            <form action="procesarDenuncia.php" method="POST">
+                <label for="tipo-denuncia">Tipo de Denuncia</label>
+                <select id="tipo-denuncia" name="tipo-denuncia" required>
+                    <option value="robo">Robo</option>
+                    <option value="acoso">Acoso</option>
+                    <option value="abuso-laboral">Abuso Laboral</option>
+                    <option value="violencia-domestica">Violencia Doméstica</option>
+                    <option value="fraude">Fraude</option>
+                </select>
+
+                <label for="detalles">Detalles de la Denuncia</label>
+                <textarea id="detalles" name="detalles" rows="4" required placeholder="Describe los hechos de forma detallada..."></textarea>
+
+                <label for="nombre">Tu Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Tu Correo Electrónico</label>
+                <input type="email" id="email" name="email" required>
+
+                <button type="submit">Enviar Denuncia</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
