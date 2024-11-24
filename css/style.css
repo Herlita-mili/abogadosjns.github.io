@@ -2064,3 +2064,30 @@ a:focus {
 .fact-item:hover img {
     transform: scale(1.5); /* Ligeramente aumenta la imagen */
 }
+
+
+/*boton de ver mas  sobre nosotros*/
+.boton {
+    display: inline-block;
+    background-color: #3498db; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: all 0.3s ease; /* Animación de transición */
+}
+
+.boton:hover {
+    background-color: #2980b9; /* Color de fondo al pasar el mouse */
+    color: #f4f4f4; /* Color del texto al pasar el mouse */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Más sombra */
+    transform: translateY(-2px); /* Levanta el botón visualmente */
+}
+
+.boton:active {
+    background-color: #1c6391; /* Color de fondo al hacer clic */
+    transform: translateY(0); /* Sin elevación */
+}
