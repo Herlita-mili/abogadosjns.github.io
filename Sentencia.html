@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Sentencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Proceso de Sentencia</a></h1>
+    </header>
+    
+    <div class="container">
+        <h2>Formulario de Sentencia</h2>
+        <form onsubmit="enviarCorreo(event)">
+            <label for="tipo-sentencia">Tipo de Sentencia:</label>
+            <select id="tipo-sentencia" name="tipo-sentencia" required>
+                <option value="civil">Sentencia Civil</option>
+                <option value="penal">Sentencia Penal</option>
+                <option value="laboral">Sentencia Laboral</option>
+                <option value="familiar">Sentencia Familiar</option>
+                <option value="otros">Otros</option>
+            </select>
+
+            <label for="detalles">Detalles de la Sentencia:</label>
+            <textarea id="detalles" name="detalles" rows="4" required></textarea>
+
+            <label for="juez">Nombre del Juez Responsable:</label>
+            <input type="text" id="juez" name="juez" required>
+
+            <label for="email-juez">Correo Electrónico del Juez:</label>
+            <input type="email" id="email-juez" name="email-juez" required>
+
+            <label for="destinatario">Correo Electrónico del Destinatario:</label>
+            <input type="email" id="destinatario" name="destinatario" placeholder="jnsasesoreslegales@gmail.com" required>
+
+            <button type="submit">Registrar Sentencia</button>
+        </form>
+    </div>
+
+    <script>
+        function enviarCorreo(event) {
+            event.preventDefault(); // Evitar el envío predeterminado
+
+            const tipo = document.getElementById('tipo-sentencia').value;
+            const detalles = document.getElementById('detalles').value;
+            const juez = document.getElementById('juez').value;
+            const emailJuez = document.getElementById('email-juez').value;
+            const destinatario = document.getElementById('destinatario').value;
+
+            const asunto = `Nueva sentencia de tipo: ${tipo}`;
+            const cuerpo = `Detalles de la sentencia:\n\n${detalles}\n\nJuez Responsable: ${juez}\nCorreo del Juez: ${emailJuez}`;
+
+            window.location.href = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+        }
+    </script>
+</body>
+</html>

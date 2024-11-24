@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesoría Jurídica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">Asesoría Jurídica</a></h1>
+    </header>
+    
+    <div class="container">
+        <h2>Formulario de Asesoría Jurídica</h2>
+        <form onsubmit="enviarCorreo(event)">
+            <label for="tipo-asesoria">Tipo de Asesoría:</label>
+            <select id="tipo-asesoria" name="tipo-asesoria" required>
+                <option value="civil">Asesoría Civil</option>
+                <option value="laboral">Asesoría Laboral</option>
+                <option value="familiar">Asesoría Familiar</option>
+                <option value="comercial">Asesoría Comercial</option>
+                <option value="penal">Asesoría Penal</option>
+                <option value="otros">Otros</option>
+            </select>
+
+            <label for="detalles">Detalles de la Consulta:</label>
+            <textarea id="detalles" name="detalles" rows="4" required></textarea>
+
+            <label for="nombre">Nombre del Consultante:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo Electrónico del Consultante:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="destinatario">Correo Electrónico del Destinatario:</label>
+            <input type="email" id="destinatario" name="destinatario" placeholder="jnsasesoreslegales@gmail.com" required>
+
+            <button type="submit">Solicitar Asesoría</button>
+        </form>
+    </div>
+
+    <script>
+        function enviarCorreo(event) {
+            event.preventDefault(); // Evitar el envío predeterminado
+
+            const tipo = document.getElementById('tipo-asesoria').value;
+            const detalles = document.getElementById('detalles').value;
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const destinatario = document.getElementById('destinatario').value;
+
+            const asunto = `Solicitud de Asesoría Jurídica: ${tipo}`;
+            const cuerpo = `Detalles de la consulta:
+
+${detalles}
+
+Nombre del consultante: ${nombre}
+Correo del consultante: ${email}`;
+
+            window.location.href = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+        }
+    </script>
+</body>
+</html>

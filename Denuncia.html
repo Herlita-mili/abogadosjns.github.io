@@ -7,100 +7,110 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+        header a:hover {
+            text-decoration: underline;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 50%;
+            margin: auto;
+            background-color: white;
             padding: 20px;
-            background-color: #fff;
+            margin-top: 20px;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+        h2 {
             color: #333;
         }
-        .description, .denuncia-types, .form-section {
-            margin-bottom: 20px;
+        form {
+            display: flex;
+            flex-direction: column;
         }
-        .denuncia-types ul {
-            list-style-type: none;
-            padding: 0;
+        label {
+            margin-top: 10px;
         }
-        .denuncia-types li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .form-section label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #555;
-        }
-        .form-section input, .form-section textarea, .form-section select {
-            width: 100%;
+        input, select, textarea {
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
         }
-        .form-section button {
-            padding: 10px 20px;
-            color: #fff;
-            background-color: #007bff;
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
-        .form-section button:hover {
-            background-color: #0056b3;
+        button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1><a href="index.html">Proceso de Denuncia</a></h1>
+    </header>
+    
     <div class="container">
-        <h1>Proceso de Denuncia</h1>
-        <div class="description">
-            <p>En esta sección podrás iniciar un proceso de denuncia en caso de haber sido víctima o testigo de una situación que vulnere tus derechos o los de otra persona. Nos comprometemos a guiarte y representarte en cada paso de este proceso.</p>
-        </div>
+        <h2>Formulario de Denuncia</h2>
+        <form onsubmit="enviarCorreo(event)">
+            <label for="tipo-denuncia">Tipo de Denuncia:</label>
+            <select id="tipo-denuncia" name="tipo-denuncia" required>
+                <option value="civil">Denuncia Civil</option>
+                <option value="laboral">Denuncia Laboral</option>
+                <option value="familiar">Denuncia Familiar</option>
+                <option value="comercial">Denuncia Comercial</option>
+                <option value="otros">Otros</option>
+            </select>
 
-        <!-- Tipos de Denuncias -->
-        <div class="denuncia-types">
-            <h2>¿Qué tipo de denuncia quieres presentar?</h2>
-            <ul>
-                <li><strong>Denuncia por robo:</strong> En casos donde se haya experimentado una pérdida de propiedad debido a un robo.</li>
-                <li><strong>Denuncia por acoso:</strong> Situaciones en las que te sientas hostigado(a) o amenazado(a) por alguien.</li>
-                <li><strong>Denuncia por abuso laboral:</strong> Cuando se hayan violado tus derechos en el ámbito laboral.</li>
-                <li><strong>Denuncia por violencia doméstica:</strong> En casos donde haya ocurrido maltrato físico, psicológico o emocional en el entorno familiar.</li>
-                <li><strong>Denuncia por fraude:</strong> Situaciones donde se han realizado actos de engaño con el fin de obtener beneficios económicos o personales.</li>
-            </ul>
-        </div>
+            <label for="detalles">Detalles de la Denuncia:</label>
+            <textarea id="detalles" name="detalles" rows="4" required></textarea>
 
-        <!-- Formulario de Denuncia -->
-        <div class="form-section">
-            <h2>Presenta tu Denuncia</h2>
-            <form action="procesarDenuncia.php" method="POST">
-                <label for="tipo-denuncia">Tipo de Denuncia</label>
-                <select id="tipo-denuncia" name="tipo-denuncia" required>
-                    <option value="robo">Robo</option>
-                    <option value="acoso">Acoso</option>
-                    <option value="abuso-laboral">Abuso Laboral</option>
-                    <option value="violencia-domestica">Violencia Doméstica</option>
-                    <option value="fraude">Fraude</option>
-                </select>
+            <label for="nombre">Nombre del Denunciante:</label>
+            <input type="text" id="nombre" name="nombre" required>
 
-                <label for="detalles">Detalles de la Denuncia</label>
-                <textarea id="detalles" name="detalles" rows="4" required placeholder="Describe los hechos de forma detallada..."></textarea>
+            <label for="email">Correo Electrónico del Denunciante:</label>
+            <input type="email" id="email" name="email" required>
 
-                <label for="nombre">Tu Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+            <label for="destinatario">Correo Electrónico del Destinatario:</label>
+            <input type="email" id="destinatario" name="destinatario" placeholder="jnsasesoreslegales@gmail.com" required>
 
-                <label for="email">Tu Correo Electrónico</label>
-                <input type="email" id="email" name="email" required>
-
-                <button type="submit">Enviar Denuncia</button>
-            </form>
-        </div>
+            <button type="submit">Presentar Denuncia</button>
+        </form>
     </div>
+
+    <script>
+        function enviarCorreo(event) {
+            event.preventDefault(); // Evitar el envío predeterminado
+
+            const tipo = document.getElementById('tipo-denuncia').value;
+            const detalles = document.getElementById('detalles').value;
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const destinatario = document.getElementById('destinatario').value;
+
+            const asunto = `Nueva denuncia de tipo: ${tipo}`;
+            const cuerpo = `Detalles de la denuncia:\n\n${detalles}\n\nNombre del denunciante: ${nombre}\nCorreo del denunciante: ${email}`;
+
+            window.location.href = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+        }
+    </script>
 </body>
 </html>

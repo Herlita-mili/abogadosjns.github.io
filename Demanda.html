@@ -15,6 +15,13 @@
             padding: 10px;
             text-align: center;
         }
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
         .container {
             width: 50%;
             margin: auto;
@@ -58,12 +65,15 @@
 </head>
 <body>
     <header>
-        <h1>Proceso de Demanda</h1>
+        <h1><a href="index.html">Proceso de Demanda</a></h1>
     </header>
     
     <div class="container">
         <h2>Formulario de Demanda</h2>
-        <form action="procesarDemanda.php" method="POST">
+        <label for="subir-imagen">Subir Imagen de Fondo:</label>
+        <input type="file" id="subir-imagen" accept="img/">
+
+        <form onsubmit="enviarCorreo(event)">
             <label for="tipo-demanda">Tipo de Demanda:</label>
             <select id="tipo-demanda" name="tipo-demanda" required>
                 <option value="civil">Demanda Civil</option>
@@ -79,13 +89,43 @@
             <label for="nombre">Nombre del Demandante:</label>
             <input type="text" id="nombre" name="nombre" required>
 
-            <label for="email">Correo Electrónico:</label>
-            <input type
+            <label for="email">Correo Electrónico del Demandante:</label>
             <input type="email" id="email" name="email" required>
+
+            <label for="destinatario">Correo Electrónico del Destinatario:</label>
+            <input type="email" id="destinatario" name="destinatario" placeholder="jnsasesoreslegales@gmail.com" required>
 
             <button type="submit">Presentar Demanda</button>
         </form>
     </div>
+
+    <script>
+        function enviarCorreo(event) {
+            event.preventDefault(); // Evitar el envío predeterminado
+
+            const tipo = document.getElementById('tipo-demanda').value;
+            const detalles = document.getElementById('detalles').value;
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const destinatario = document.getElementById('destinatario').value;
+
+            const asunto = `Nueva demanda de tipo: ${tipo}`;
+            const cuerpo = `Detalles de la demanda:\n\n${detalles}\n\nNombre del demandante: ${nombre}\nCorreo del demandante: ${email}`;
+
+            window.location.href = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+        }
+
+        // Cambiar el fondo con una imagen cargada
+        document.getElementById('subir-imagen').addEventListener('change', function(event) {
+            const archivo = event.target.files[0];
+            if (archivo) {
+                const lector = new FileReader();
+                lector.onload = function(e) {
+                    document.body.style.backgroundImage = `url(${e.target.result})`;
+                };
+                lector.readAsDataURL(archivo);
+            }
+        });
+    </script>
 </body>
 </html>
-
