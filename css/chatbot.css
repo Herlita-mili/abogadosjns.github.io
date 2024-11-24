@@ -416,15 +416,20 @@ input[type="text"] {
     display: flex;
     align-items: center; /* Alinea verticalmente el chat y el mensaje */
     position: fixed;
-    right: 5%;
-    bottom: 14%;
+    bottom: 10%; /* Ajusta el valor para mover hacia arriba */
     z-index: 1000;
 }
+
 
 /* Estilo para el icono de chat */
 .chat-closed {
     background: transparent;
     transform: none;
+    position: fixed; /* Asegura que el icono se mantenga en un lugar fijo */
+    bottom: 8%; /* Ajusta según lo necesario */
+    right: 3%; /* Ajusta según lo necesario */
+    max-width: 60px; /* Tamaño máximo del icono */
+    max-height: 60px;
 }
 
 /* Estilo para el mensaje "Chatea con nosotros" */
@@ -435,13 +440,18 @@ input[type="text"] {
     border-radius: 8px;
     padding: 10px;
     font-size: 14px;
-    transform: none;
+    position: fixed; /* Asegura que el mensaje permanezca fijo */
+    bottom: 8%; /* Alineado con el icono */
+    right: 8%; /* Ajusta según lo necesario */
+    max-width: 200px; /* Evita que el mensaje crezca demasiado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade algo de sombra */
 }
 
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
     .chat-container {
         flex-direction: column; /* Cambia la dirección de los elementos a vertical */
+        position: fixed; /* Mantiene el contenedor fijo */
         right: 2%;
         bottom: 10%;
     }
@@ -451,5 +461,12 @@ input[type="text"] {
         margin-top: 10px; /* Añade separación entre el icono y el mensaje */
         font-size: 12px; /* Reduce el tamaño del texto */
         padding: 8px; /* Ajusta el padding */
+        max-width: 150px; /* Tamaño máximo del mensaje en pantallas pequeñas */
+    }
+
+    .chat-closed {
+        bottom: 10%; /* Ajusta el espacio en pantallas pequeñas */
+        right: 5%; /* Mueve ligeramente el icono hacia adentro */
     }
 }
+
