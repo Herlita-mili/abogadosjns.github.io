@@ -418,17 +418,27 @@ input[type="text"] {
 /* Estilo del contenedor del chatbot */
 .chat-closed {
     position: fixed;
-    right: 35px;  /* Aumenta a la derecha */
-    transform: translateY(-60px);
-    background: transparent;  /* Esto elimina cualquier color de fondo */
+    right: 5%; /* Ajusta a un porcentaje relativo al ancho de la pantalla */
+    bottom: 14%; /* Usa un porcentaje para mantener la posición vertical */
+    background: transparent; /* Elimina cualquier color de fondo */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    transform: none; /* Elimina el desplazamiento vertical innecesario */
 }
-
 
 .widgetLabel {
     position: fixed;
-    left: 75rem;  
-    z-index: 1000;
-    border-radius: 8px;
-    padding: 10px;
-    transform: translateY(-60px); /* Ajusta este valor para mover hacia arriba */
+    right: 9%; /* Alinea con el botón de chat */
+    bottom: 15%; /* Ajusta para que esté encima del botón */
+    z-index: 1000; /* Asegura que esté visible sobre otros elementos */
+    border-radius: 8px; /* Redondea las esquinas */
+    padding: px; /* Espaciado interno */
+    transform: none; /* No aplica transformaciones */
+}
+
+/* Media query para ajustar en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .chat-closed, .widgetLabel {
+        right: 2%; /* Más cerca del borde en pantallas pequeñas */
+        bottom: 5%; /* Ajusta la posición vertical */
+    }
 }
