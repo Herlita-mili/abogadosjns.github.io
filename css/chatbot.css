@@ -411,34 +411,45 @@ input[type="text"] {
 }
 
 /* Efecto para el botón seleccionado */
-.option-btn.selected {
-    background-color: rgb(83, 120, 149);
-    color: #fff;
+/* Estilo para el contenedor del chat */
+.chat-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el chat y el mensaje */
+    position: fixed;
+    right: 5%;
+    bottom: 14%;
+    z-index: 1000;
 }
-/* Estilo del contenedor del chatbot */
+
+/* Estilo para el icono de chat */
 .chat-closed {
-    position: fixed;
-    right: 5%; /* Ajusta a un porcentaje relativo al ancho de la pantalla */
-    bottom: 14%; /* Usa un porcentaje para mantener la posición vertical */
-    background: transparent; /* Elimina cualquier color de fondo */
-    z-index: 1000; /* Asegura que esté encima de otros elementos */
-    transform: none; /* Elimina el desplazamiento vertical innecesario */
+    background: transparent;
+    transform: none;
 }
 
+/* Estilo para el mensaje "Chatea con nosotros" */
 .widgetLabel {
-    position: fixed;
-    right: 9%; /* Alinea con el botón de chat */
-    bottom: 15%; /* Ajusta para que esté encima del botón */
-    z-index: 1000; /* Asegura que esté visible sobre otros elementos */
-    border-radius: 8px; /* Redondea las esquinas */
-    padding: px; /* Espaciado interno */
-    transform: none; /* No aplica transformaciones */
+    margin-left: 10px; /* Separa el mensaje del icono */
+    background: rgba(1, 14, 34, 0.7); /* Fondo oscuro semitransparente */
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    transform: none;
 }
 
-/* Media query para ajustar en pantallas más pequeñas */
+/* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
-    .chat-closed, .widgetLabel {
-        right: 2%; /* Más cerca del borde en pantallas pequeñas */
-        bottom: 5%; /* Ajusta la posición vertical */
+    .chat-container {
+        flex-direction: column; /* Cambia la dirección de los elementos a vertical */
+        right: 2%;
+        bottom: 10%;
+    }
+
+    .widgetLabel {
+        margin-left: 0; /* Elimina el margen a la izquierda */
+        margin-top: 10px; /* Añade separación entre el icono y el mensaje */
+        font-size: 12px; /* Reduce el tamaño del texto */
+        padding: 8px; /* Ajusta el padding */
     }
 }
