@@ -1,13 +1,16 @@
-body {
+
+.body {
     font-family: Arial, sans-serif;
-    background: transparent; 
+    /* background: transparent;  */
+    background: #4402;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 10vh; */
 }
+/* ancho del chat */
 
 .chat-container {
     width: 350px;
@@ -411,4 +414,21 @@ input[type="text"] {
 .option-btn.selected {
     background-color: rgb(83, 120, 149);
     color: #fff;
+}
+/* Estilo del contenedor del chatbot */
+.chat-closed {
+    position: fixed;
+    right: 35px;  /* Aumenta a la derecha */
+    transform: translateY(-60px);
+    background: transparent;  /* Esto elimina cualquier color de fondo */
+}
+
+
+.widgetLabel {
+    position: fixed;
+    left: 75rem;  
+    z-index: 1000;
+    border-radius: 8px;
+    padding: 10px;
+    transform: translateY(-60px); /* Ajusta este valor para mover hacia arriba */
 }

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+.chat-container {
+  width: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  position: fixed; /* Fijar en la parte inferior */
+  bottom: 30px;
+  right: 35px;
+}
+.chat-container .chat-header {
+  background: linear-gradient(135deg, rgb(9, 32, 63) 0%, rgb(83, 120, 149) 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+}
+.chat-container .chat-header .header-top, .chat-container .chat-header .header-bottom {
+  background-color: transparent; /* Asegúrate de que el fondo sea transparente */
+  padding: 0;
+  margin: 0;
+}
+.chat-container .chat-header .header-top {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.chat-container .chat-header .header-top .avatar {
+  background-color: #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.chat-container .chat-header .header-top .avatar .header-ava {
+  width: 42px;
+  height: 42px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAMDAwMDAwQEBAQFBQUFBQcHBgYHBwsICQgJCAsRCwwLCwwLEQ8SDw4PEg8bFRMTFRsfGhkaHyYiIiYwLTA+PlQBAwMDAwMDBAQEBAUFBQUFBwcGBgcHCwgJCAkICxELDAsLDAsRDxIPDg8SDxsVExMVGx8aGRofJiIiJjAtMD4+VP/CABEIADwAPAMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgEDBAUHAgn/2gAIAQEAAAAA+lYAj8cy5ndHO8VNN0IFrk62gjEYudH9iLQPN6lec+0VmtG038L9UpWh/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAhAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQMQAAAAAAD/xAAuEAABAwMACAUEAwAAAAAAAAABAgMEAAURBhASEyAhQVEiMmKRwSNxcoExQqH/2gAIAQEAAT8A14PHdbuuMvcMY2wPGs88Z6ClT5qzlUh0n8qjXmawoFay8jqlfwaZebkNIdbOUrGRwCpxJmySf53qtdgJNu+zq+G7N7u4yPUoK9xrsyC3bWfUVL9zw6QxiS1IA5Y2F/Gpplb7qGkeZasCkNpabQhPlQkJH64CMDJ5DvWkk+Gu3uRm3wp5ak42Dkp2TnJNC4S2hhyPvT0Wg4z9xVqmuN3SNJl/TabUcITzxkY2j3piRHkjLLrbg9Ks1gjVL0nnvLVuAllHTllf7Jp+VKknLz7jn5K+KAAGNY8JykkHuDg0xe7rG5JkqUB/VY2x/tR9LkBvEmMsud2/KfeumrtXSu9dKFZNf//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQIBAT8AB//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQMBAT8AB//Z);
+  float: left;
+}
+.chat-container .chat-header .header-top .chat-info {
+  flex: 1;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.chat-container .chat-header .header-top .chat-info h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: currentcolor;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  max-width: calc(100% - 80px); /* Reducir espacio reservado para el botón */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.chat-container .chat-header .header-top .chat-info .toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px; /* Reducir margen entre el texto y el botón */
+  width: 3rem;
+  height: 3rem;
+}
+.chat-container .chat-header .header-top .chat-info .toggle-button svg {
+  fill: white; /* Color blanco para el ícono */
+  transition: fill 0.3s ease;
+  transform: rotate(270deg); /* Rotar la flecha para que apunte hacia abajo */
+}
+.chat-container .chat-header .header-top .chat-info .toggle-button svg:hover {
+  fill: #ccc; /* Color del ícono al pasar el ratón */
+}
+.chat-container .chat-header .header-top .chat-info .toggle-button .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.chat-container .chat-header .header-bottom {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(48, 51, 75, 0.1);
+  position: relative;
+  z-index: 2;
+}/*# sourceMappingURL=chatbot-new.css.map */

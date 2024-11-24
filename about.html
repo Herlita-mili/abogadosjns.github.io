@@ -20,8 +20,9 @@
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
+        <!-- estilos -->
         <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/chatbot.css">
     </head>
 
     <body class="page">
@@ -297,6 +298,75 @@
                 </div>  
             </div>
         </div>
+        <div id="chat-if">
+            <div class="chatbot-container">
+                <div class="widget-position-right sidebar-position-right bubbleWithLabel">
+                    <!-- Botón de chat con el mensaje y la mano -->
+                    <button class="widgetLabel moveFromRightLabel-enter-done" type="button">
+                        <span>Chatea con nosotros
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/12.1.1/72x72/1f44b.png" alt="👋" class="emoji">
+                        </span>
+                    </button>
+                
+                    <!-- Botón flotante con los íconos -->
+                    <div id="button" data-testid="widgetButton" class="chat-closed mobile-size__large clicked">
+                        <div class="buttonWave"></div>
+                        <button type="button" id="button-body" data-testid="widgetButtonBody" class="chrome" tabindex="0" aria-label="Open chat widget">
+                            <!-- Ícono de burbuja de chat -->
+                            <i class="material-icons type1 for-closed active">
+                                <svg id="ic_bubble" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"></path>
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                </svg>
+                            </i>
+                
+                            <!-- Ícono de lápiz (aparece al hacer hover) -->
+                            <i class="material-icons type1 for-closed hover-pencil">
+                                <svg id="ic_create" fill="blue" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                </svg>
+                            </i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-container hidden">
+                    <div class="chat-header">
+                        <div class="header-top">
+                            <div class="avatar">
+                                <div class="header-ava"></div>
+                            </div>
+                            <div class="chat-info">
+                                <h2>Chatear con JNS</h2>
+                                <button id="toggleChat" class="toggle-button" aria-label="Minimizar">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" id="ic-minimize">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path>
+                                    </svg>
+                                    <span class="sr-only">Minimizar</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="header-bottom">
+                            <span class="status-indicator"></span>
+                            <p>Contestamos inmediatamente</p>
+                        </div>
+                    </div>
+                    
+                    <div id="chatbox" class="chatbox">
+                        
+                        <div id="option-buttons" class="option-buttons"></div>
+        
+                        <!-- Mensajes aparecerán aquí -->
+                    </div>
+                    <div class="input-area">
+                        <input id="userInput" type="text" placeholder="Escribe un mensaje..." onkeydown="handleInput(event)">
+                        <button id="sendButton" onclick="sendMessage()">➤</button>
+                    </div>
+                </div>
+            </div>
+        </div>
        
         <!-- Footer End -->
         
@@ -318,7 +388,7 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
-
+        <script src="js/chatbot.js"></script>
         <a href="https://wa.me/+51 913778495" class="whatsapp-icon" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>

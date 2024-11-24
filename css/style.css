@@ -1982,17 +1982,18 @@ a:focus {
     }
 }
 /* Estilo del iframe */
+/* Estilo del iframe */
 #chat-if {
     border: none;
     position: fixed;
-    bottom: 70px; /* Ajusta según sea necesario */
-    right: 20px; /* Ajusta según el diseño */
-    width: 3000px; /* Ajusta según sea necesario */
-    height: 3000px; /* Ajusta según sea necesario */
+    bottom: 100px; /* Ajusta este valor */
+    right: 20px;
     background: transparent;
-    z-index: 1000; /* Asegúrate de que esté por encima del contenido general */
-    
+    z-index: 1000;
+  
 }
+
+
 
 
 /* Estilos de experiencia */

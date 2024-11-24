@@ -292,14 +292,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatContainer = document.querySelector('.chat-container');
     const widgetPosition = document.querySelector('.widget-position-right');
 
+    // const iframe = document.querySelector('#chat-if');
+    // console.log(iframe);
+
     chatButton.addEventListener('click', () => {
         if (chatContainer.classList.contains('hidden')) {
             chatContainer.classList.remove('hidden');
             widgetPosition.classList.add('hidden');
             showOptionButtons(); // Muestra los botones al abrir el chat
+            // iframe.style.height = '600px';
         } else {
             chatContainer.classList.add('hidden');
             widgetPosition.classList.remove('hidden');
+            // iframe.style.height = '100px';
         }
     });
 });
